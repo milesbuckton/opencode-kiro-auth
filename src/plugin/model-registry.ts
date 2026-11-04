@@ -98,6 +98,14 @@ export const MODEL_SPECS: Record<string, ModelSpec> = {
     limit: CONTEXT_200K,
     modalities: TEXT_IMAGE
   },
+  // 0.06x is the short-context rate (up to 100K tokens); requests over 100K bill
+  // at 0.3x, a Kiro-side split this plugin does not model — same as GPT-5.6's tiers.
+  'claude-haiku-5-5': {
+    name: 'Claude Haiku 5.5',
+    rate: '0.06x',
+    limit: CONTEXT_1M,
+    modalities: TEXT_IMAGE
+  },
 
   // Claude Opus
   'claude-opus-4-5': {

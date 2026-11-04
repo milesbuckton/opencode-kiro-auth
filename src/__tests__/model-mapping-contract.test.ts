@@ -16,6 +16,9 @@ import { MODEL_SPECS } from '../plugin/model-registry.js'
 const SERVED_BY_KIRO: Record<string, { context: number; output: number; rate: number }> = {
   auto: { context: 1000000, output: 64000, rate: 1 },
   'claude-haiku-4.5': { context: 200000, output: 64000, rate: 0.4 },
+  // 0.06x is the short-context rate; over 100K tokens Kiro bills 0.3x, a split
+  // not modelled here (as with GPT-5.6). The tier price is the one advertised.
+  'claude-haiku-5.5': { context: 1000000, output: 64000, rate: 0.06 },
   'claude-opus-4.5': { context: 200000, output: 64000, rate: 2.2 },
   'claude-opus-4.6': { context: 1000000, output: 64000, rate: 2.2 },
   'claude-opus-4.7': { context: 1000000, output: 128000, rate: 2.2 },
